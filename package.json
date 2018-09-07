@@ -16,9 +16,10 @@
   "typings": "src/index.d.ts",
   "builders": "builders.json",
   "scripts": {
-    "tsc": "tsc",
-    "build": "npm run tsc",
-    "format": "prettier --write **/*.ts"
+    "build": "tsc",
+    "format": "prettier --write **/*.ts",
+    "prerelease": "npm run build",
+    "release": "standard-version"
   },
   "dependencies": {
     "@angular-devkit/architect": "^0.7.1",
