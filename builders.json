@@ -1,0 +1,14 @@
+{
+  "builders": {
+    "build": {
+      "class": "./src/electron",
+      "schema": "./src/electron/schema.json",
+      "description": "Electron builder"
+    },
+    "dev-server": {
+      "class": "./src/electron-dev-server",
+      "schema": "./src/electron-dev-server/schema.json",
+      "description": "Electron dev-server builder"
+    }
+  }
+}
