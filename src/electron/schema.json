@@ -6,10 +6,6 @@
       "type": "string",
       "description": "Electron process main entry point."
     },
-    "reloadOnChanges": {
-      "type": "boolean",
-      "description": "Reload electron application on changes to the main programm"
-    },
     "assets": {
       "type": "array",
       "description": "List of static application assets.",

@@ -1,20 +1,12 @@
 {
-  "title": "Karma Target",
-  "description": "Karma target options for Build Facade.",
+  "title": "Electron Dev Server Target",
+  "description": "Electron dev server target options for Build Facade.",
   "type": "object",
   "properties": {
-
-    "extraWebpackConfig": {
-      "type": "string",
-      "description": "Additional Webpack Config that gets merged with the default config."
-    },
-    "singleBundle": {
+    "reloadOnChanges": {
       "type": "boolean",
-      "description": "Generate just one bundle",
-      "default": false
+      "description": "Reload electron application on changes to the main programm"
     },
-
-
     "browserTarget": {
       "type": "string",
       "description": "Target to serve."
