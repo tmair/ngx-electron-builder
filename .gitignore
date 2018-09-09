@@ -3,6 +3,8 @@
 # compiled output
 *.js
 *.d.ts
+# Do not ignore handwritten schemas
+!schema.d.ts
 /dist
 /tmp
 /out-tsc
