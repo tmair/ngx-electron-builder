@@ -43,7 +43,7 @@ export function watch(configFile: string) {
       configFile,
       {},
       ts.sys,
-      createProgram,
+      createProgram as ts.CreateProgram<ts.BuilderProgram>,
       reportDiagnostic,
       reportWatchStatusChanged
     );
@@ -54,7 +54,7 @@ export function watch(configFile: string) {
     // doesn't use `this` at all.
     const origCreateProgram = host.createProgram;
     host.createProgram = (
-      rootNames: ReadonlyArray<string>,
+      rootNames: ReadonlyArray<string> | undefined,
       options,
       host,
       oldProgram
