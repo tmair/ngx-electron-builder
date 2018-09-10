@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.0-alpha.1"></a>
+# [0.1.0-alpha.1](https://github.com/tmair/ngx-electron-builder/compare/v0.1.0-alpha.0...v0.1.0-alpha.1) (2018-09-10)
+
+
+### Features
+
+* Add watch mode for main process files ([f8efe8b](https://github.com/tmair/ngx-electron-builder/commit/f8efe8b)), closes [#1](https://github.com/tmair/ngx-electron-builder/issues/1)
+
+
+
 <a name="0.1.0-alpha.0"></a>
 # 0.1.0-alpha.0 (2018-09-07)
 
