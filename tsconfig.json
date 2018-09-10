@@ -4,26 +4,17 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmitOnError": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "noUnusedParameters": false,  // The linter is used for these.
-    "noUnusedLocals": false,  // The linter is used for these.
-    "rootDir": ".",
+    "strict": true,
+    "rootDir": "src",
     "skipDefaultLibCheck": true,
-    "skipLibCheck": true,
     "inlineSourceMap": true,
-    "sourceRoot": ".",
-    // Inline sources are necessary for our tests to show the proper sources, since we are using
-    // Istanbul (not Constantinople) as well, and applying both source maps to get the original
-    // source in devtools.
-    "inlineSources": true,
-    "strictNullChecks": true,
+    "sourceRoot": "src",
+    "outDir": "dist",
+    "skipLibCheck": true,
     "target": "es2016",
     "lib": [
       "es2017"
     ],
-    "baseUrl": "",
     "typeRoots": [
       "./node_modules/@types"
     ],
@@ -32,6 +23,6 @@
     ],
   },
   "exclude": [
-    "node_modules/**/*"
+    "node_modules/**"
   ]
 }

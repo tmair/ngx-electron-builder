@@ -1,3 +1,4 @@
+import { BuildEvent } from '@angular-devkit/architect';
 import * as fs from 'fs';
 import * as path from 'path';
 import { Observable, of, throwError } from 'rxjs';
@@ -56,11 +57,14 @@ export function readConfigFile(
   return of(configParseResult);
 }
 
-export function compile(configFileName: string) {
+export function compile(configFileName: string): Observable<BuildEvent> {
   // Extract configuration from config file
   return readConfigFile(configFileName).pipe(
     map(config => ts.createProgram(config.fileNames, config.options)),
-    map(program => [program.emit(), ts.getPreEmitDiagnostics(program)]),
+    map<ts.Program, [ts.EmitResult, ts.Diagnostic[]]>(program => [
+      program.emit(),
+      ts.getPreEmitDiagnostics(program)
+    ]),
     tap(([emitResult, preDiagnostics]: [ts.EmitResult, ts.Diagnostic[]]) =>
       reportDiagnostics(preDiagnostics.concat(emitResult.diagnostics))
     ),

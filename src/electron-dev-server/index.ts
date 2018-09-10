@@ -1,5 +1,12 @@
-import { Builder, BuilderConfiguration, BuildEvent } from '@angular-devkit/architect';
-import { DevServerBuilder as DevServerBuilderBase, DevServerBuilderOptions } from '@angular-devkit/build-angular';
+import {
+  Builder,
+  BuilderConfiguration,
+  BuildEvent
+} from '@angular-devkit/architect';
+import {
+  DevServerBuilder as DevServerBuilderBase,
+  DevServerBuilderOptions
+} from '@angular-devkit/build-angular';
 import { spawn } from 'child_process';
 import * as path from 'path';
 import { combineLatest, Observable } from 'rxjs';
@@ -14,7 +21,8 @@ export class DevServerBuilder extends DevServerBuilderBase
     builderConfig: BuilderConfiguration<ElectronServerBuilderOptions>
   ): Observable<BuildEvent> {
     const config = this.getBuilderConfiguration(builderConfig);
-    const startWatcher: boolean = builderConfig.options.reloadOnChanges || false;
+    const startWatcher: boolean =
+      builderConfig.options.reloadOnChanges || false;
 
     const angularBuilder = super.run(builderConfig).pipe(shareReplay(1));
     const typescript = this.runTypescript(config, startWatcher).pipe(

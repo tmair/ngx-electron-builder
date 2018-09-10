@@ -1,13 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-*.js
-*.d.ts
-# Do not ignore handwritten schemas
-!schema.d.ts
 /dist
-/tmp
-/out-tsc
 
 # dependencies
 /node_modules
