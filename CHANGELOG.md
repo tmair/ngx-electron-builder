@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.0-alpha.2"></a>
+# [0.1.0-alpha.2](https://github.com/tmair/ngx-electron-builder/compare/v0.1.0-alpha.1...v0.1.0-alpha.2) (2018-09-12)
+
+
+### Bug Fixes
+
+* **build:** Copy schemas on build-dist ([9431e7e](https://github.com/tmair/ngx-electron-builder/commit/9431e7e)), closes [#5](https://github.com/tmair/ngx-electron-builder/issues/5)
+
+
+
 <a name="0.1.0-alpha.1"></a>
 # [0.1.0-alpha.1](https://github.com/tmair/ngx-electron-builder/compare/v0.1.0-alpha.0...v0.1.0-alpha.1) (2018-09-10)
 
