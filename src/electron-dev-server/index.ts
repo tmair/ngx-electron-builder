@@ -1,5 +1,12 @@
-import { Builder, BuilderConfiguration, BuildEvent } from '@angular-devkit/architect';
-import { DevServerBuilder as DevServerBuilderBase, DevServerBuilderOptions } from '@angular-devkit/build-angular';
+import {
+  Builder,
+  BuilderConfiguration,
+  BuildEvent
+} from '@angular-devkit/architect';
+import {
+  DevServerBuilder as DevServerBuilderBase,
+  DevServerBuilderOptions
+} from '@angular-devkit/build-angular';
 import * as path from 'path';
 import { combineLatest, Observable } from 'rxjs';
 import { first, map, mergeMap, shareReplay, switchMap } from 'rxjs/operators';

@@ -11,7 +11,7 @@ export function runElectronWatcher(
   outputDir: string
 ): Observable<BuildEvent> {
   return new Observable(obs => {
-    let electronProcess = spawn(electron as any, [mainFile]);
+    let electronProcess = spawn(electron as any, [mainFile, '--dev-mode']);
     electronProcess.on('exit', processExitListener);
 
     const watcher = chokidar.watch(`${outputDir}/**/*`, {
@@ -19,7 +19,7 @@ export function runElectronWatcher(
       persistent: true
     });
 
-    watcher.on('change', evt => {
+    watcher.on('change', () => {
       if (electronProcess) {
         electronProcess.removeListener('exit', processExitListener);
         electronProcess.kill();
