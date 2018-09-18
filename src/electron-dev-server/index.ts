@@ -1,18 +1,11 @@
-import {
-  Builder,
-  BuilderConfiguration,
-  BuildEvent
-} from '@angular-devkit/architect';
-import {
-  DevServerBuilder as DevServerBuilderBase,
-  DevServerBuilderOptions
-} from '@angular-devkit/build-angular';
-import { spawn } from 'child_process';
+import { Builder, BuilderConfiguration, BuildEvent } from '@angular-devkit/architect';
+import { DevServerBuilder as DevServerBuilderBase, DevServerBuilderOptions } from '@angular-devkit/build-angular';
 import * as path from 'path';
 import { combineLatest, Observable } from 'rxjs';
-import { first, map, shareReplay, switchMap } from 'rxjs/operators';
+import { first, map, mergeMap, shareReplay, switchMap } from 'rxjs/operators';
 import { ElectronBuilderSchema } from '../electron/schema';
 import { compile, readConfigFile, watch } from '../typescript';
+import { runElectronWatcher } from './electron-reload';
 import { ElectronServerBuilderOptions } from './schema';
 
 export class DevServerBuilder extends DevServerBuilderBase
@@ -60,18 +53,18 @@ export class DevServerBuilder extends DevServerBuilderBase
           throw new Error('Multiple entry files for electron process');
         }
 
-        return path.resolve(
-          config.options.outDir || '',
-          config.fileNames[0].replace(/\.ts$/, '.js')
-        );
+        const outputDir = config.options.outDir || '';
+
+        return {
+          mainFile: path.resolve(
+            outputDir,
+            config.fileNames[0].replace(/\.ts$/, '.js')
+          ),
+          outputDir
+        };
       }),
-      map(outputPath => {
-        const options = [outputPath];
-
-        const electronProcess = spawn(electron, options);
-        electronProcess.on('exit', code => process.exit(code));
-
-        return { success: true };
+      mergeMap(({ mainFile, outputDir }) => {
+        return runElectronWatcher(mainFile, outputDir);
       })
     );
   }
