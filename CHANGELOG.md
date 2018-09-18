@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.0-alpha.3"></a>
+# [0.1.0-alpha.3](https://github.com/tmair/ngx-electron-builder/compare/v0.1.0-alpha.2...v0.1.0-alpha.3) (2018-09-18)
+
+
+### Features
+
+* Watch main file changes and reload electron after change ([a2792a3](https://github.com/tmair/ngx-electron-builder/commit/a2792a3)), closes [#2](https://github.com/tmair/ngx-electron-builder/issues/2)
+
+
+
 <a name="0.1.0-alpha.2"></a>
 # [0.1.0-alpha.2](https://github.com/tmair/ngx-electron-builder/compare/v0.1.0-alpha.1...v0.1.0-alpha.2) (2018-09-12)
 
